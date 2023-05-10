@@ -1,0 +1,21 @@
+.bannerAgenda{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/barberiaam-96dc3.appspot.com/o/barberBanner.jpg?alt=media&token=be171496-f566-4666-8906-2aab6d6907f0");
+    background-position: top center;
+    background-size: cover;
+    padding: 28%;
+    position: relative;
+    z-index: 1;
+    }
+    
+    .bannerAgenda::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    z-index: -1;
+    }
+    

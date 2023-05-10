@@ -1,0 +1,21 @@
+.banner{background-image: url("https://firebasestorage.googleapis.com/v0/b/music-8bca7.appspot.com/o/Historia.jpg?alt=media&token=6d2cb75b-70ed-4eca-9ccd-c5cb64e0adfc");
+background-position:top center;     
+background-size:cover; 
+height:200%;
+align-items: center;
+text-align: center;
+background-attachment: fixed;
+color: #fff;
+opacity: 0.8; }
+
+h3{
+    font-size: 30px; 
+}
+    
+p{ 
+    font-size: 20px; 
+}  
+
+h1{ 
+    font-size: 50px; 
+}
