@@ -4,33 +4,51 @@ import WOW from 'wow.js'
 import { useEffect,useState } from 'react'
 import Swal from 'sweetalert2'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import {agendarCita} from "../services/servicioAgendar"
 
 
 export function Agenda(){
 
-    const[nombre,setNombre]=useState(null)
-    const[correo,setCorreo]=useState(null)
-    const[telefono,setTelefono]=useState(null)
-    const[fecha,setFecha]=useState(null)
-    const[hora,setHora]=useState(null)
+    const[nombre, setNombre]=useState('')
+    const[correo, setCorreo]=useState('')
+    const[telefono, setTelefono]=useState('')
+    const[hora, setHora]=useState('')
+    const[dia, setDia]=useState('')
 
     const[errores,setErrores]=useState({})
+    const [data, setData] = useState({})
+    const [envioFormulario,setEnvioformulario]=useState(false)
 
     useEffect(function(){
+        console.log(errores)
+        console.log(Object.keys(errores))
         if(Object.keys(errores).length>0){ // Aca tengo errores
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Tienes campos sin rellenar!',
               })
-        }else{ // No hay errores
+        }else if(envioFormulario){ // No hay errores
+            let datosEnvio={
+                nombre,
+                correo,
+                telefono,
+                hora,
+                dia,
+                tipo:1
+               }
+               console.log(datosEnvio)
+               agendarCita(datosEnvio).then(function(respuesta){
+                console.log(respuesta)
+               })
+
             Swal.fire(
                 'Listo!',
                 'Se ha reservado tu cita satisfactoriamente!',
                 'success'
               )
         }
-    },[errores])
+    },[errores,envioFormulario])
 
     function validarFormulario(evento){
         evento.preventDefault()
@@ -48,15 +66,18 @@ export function Agenda(){
             listaErrores.telefono="El telefono es obligatorio"   
            }
 
-        if(!fecha){
-            listaErrores.fecha="La fecha es obligatoria"   
+        if(!dia){
+            listaErrores.dia="La fecha es obligatoria"   
            }
 
-        if(!hora){
-            listaErrores.hora="La Hora es obligatoria"   
+        if(!hora === 'DEFAULT'){
+            listaErrores.hora="Seleccione una hora valida"   
            }
 
         setErrores(listaErrores)
+        if(Object.keys(listaErrores).length==0){
+            setEnvioformulario(true)
+        }
 
     }
 
@@ -128,10 +149,10 @@ useEffect(function(){
                                         <span className="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
                                         <input 
                                          type="date" 
-                                         className={`form-control ${errores.fecha?'is-invalid':''}`} 
-                                         value={fecha}
+                                         className={`form-control ${errores.dia?'is-invalid':''}`} 
+                                         value={dia}
                                          onChange={(evento)=>{
-                                            setFecha(evento.target.value)
+                                            setDia(evento.target.value)
                                         }} />
                                         <div class="invalid-feedback">Por favor selecciona una fecha.</div>
                                     </div>

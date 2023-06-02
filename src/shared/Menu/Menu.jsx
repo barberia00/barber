@@ -13,16 +13,19 @@ export function Menu() {
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav">
         <li className="nav-item">
-        <Link className="nav-link" to="/">Inicio</Link>
+        <Link className="nav-link text-white" to="/">Inicio</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link" to="/servicios">Servicios</Link>
+        <Link className="nav-link text-white" to="/servicios">Servicios</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/empleados">Empleados</Link>
+          <Link className="nav-link text-white" to="/empleados">Empleados</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link" to="/agenda">Agenda tu cita</Link>
+        <Link className="nav-link text-white" to="/agenda">Agenda tu cita</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link text-white" to="/reservas">Ver reservas</Link>
         </li>
       </ul>
     </div>

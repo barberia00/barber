@@ -5,17 +5,26 @@ height:200%;
 align-items: center;
 text-align: center;
 background-attachment: fixed;
-color: #fff;
-opacity: 0.8; }
+color: #fff; }
 
 h3{
     font-size: 30px; 
+    font-family: 'Acme', sans-serif;
 }
     
 p{ 
     font-size: 20px; 
+    font-family: 'Acme', sans-serif;
 }  
 
-h1{ 
-    font-size: 50px; 
+.HistoriaTitle{ 
+    font-size: 100px; 
+    color: black;
+    font-family: 'Acme', sans-serif;
+}
+
+.imagen{
+    height: 250px;
+    width: 250px;
+    margin: 20px;
 }
